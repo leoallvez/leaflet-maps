@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <link rel="stylesheet" href="leaflet.css" />
+        <script src="leaflet.js"></script>
+      
+        <title>Leaflet Maps</title>
+    </head>
+    <body>
+        <div id="mapid" style="width: 1350px; height: 400px;"></div>
+    </body>
+
+    <script type="text/javascript">
+ var mymap = L.map('mapid').setView([-23.4682285, -46.7168219], 17);
+        L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+            attribution: 'Léo Alves',
+            maxZoom: 18,
+            id: 'mapbox.streets',
+            accessToken: 'pk.eyJ1IjoibGVvYWxsdmV6IiwiYSI6ImNqZmx5emYyNDBrNHUycW1reXprbTB6ZmEifQ.N4ePrsAjwIEUALyZsEFp3Q'
+        }).addTo(mymap);
+        
+        L.marker([-23.4682285, -46.7168219],).addTo(mymap) .bindPopup("<b>Olá Mundo!</b><br />Eu sou um popup.").openPopup();
+    </script>
+</html>
