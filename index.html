@@ -11,18 +11,30 @@
         <title>Leaflet Maps</title>
     </head>
     <body>
-        <div id="mapid" style="width: 1350px; height: 400px;"></div>
+        <div id="mapid" style="width: 700px; height: 400px;"></div>
     </body>
 
     <script type="text/javascript">
- var mymap = L.map('mapid').setView([-23.4682285, -46.7168219], 17);
-        L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
-            attribution: 'Léo Alves',
-            maxZoom: 18,
-            id: 'mapbox.streets',
-            accessToken: 'pk.eyJ1IjoibGVvYWxsdmV6IiwiYSI6ImNqZmx5emYyNDBrNHUycW1reXprbTB6ZmEifQ.N4ePrsAjwIEUALyZsEFp3Q'
+        var mymap = L.map('mapid').setView([-23.4682137, -46.7191071], 10);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '<a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> | <b>Léo Alves</b>',
+            subdomains: ['a','b','c'],
+            maxZoom: 20
         }).addTo(mymap);
+
+        markers = [ 
+            { "name": "Marcos Costas", "age": "22", "address": "Rua josé Campo Barretos, 176", "latitude": -23.4682137, "longitude": -46.7191071 },
+            { "name": "Maria de Lima", "age": "32", "address": "Rua Brigadeiro Galvão Peixoto, 300", "latitude": -23.5213313, "longitude": -46.7208202 },
+            { "name": "Lucas Mariano", "age": "43", "address": "Rua do Chico Nunes, 300", "latitude": -23.6289444, "longitude": -46.7452848}
+        ];
+
+        markers.forEach(function(m) { 
+
+            L.marker( [m.latitude, m.longitude] )
+                .addTo(mymap)
+                .bindPopup('<b>' + m.name + '</b><br>' + 'Idade:' + m.age + '<br>' + m.address)
+                .openPopup();
+        });
         
-        L.marker([-23.4682285, -46.7168219],).addTo(mymap) .bindPopup("<b>Olá Mundo!</b><br />Eu sou um popup.").openPopup();
     </script>
 </html>
