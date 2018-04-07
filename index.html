@@ -5,57 +5,22 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-        <link rel="stylesheet" href="leaflet.css" />
-        <script src="leaflet.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+        <link rel="stylesheet" href="css/leaflet.css" />
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        
         <title>Leaflet Maps</title>
     </head>
     <body>
-        <div id="mapid" style="width: 700px; height: 400px;"></div>
+        <div class="container">
+            <div class="row">
+            <div class="col-md-12 col-md-offset-5" style="border: 1px solid #000">
+                <div id="mapid" style="height: 400px;" ></div>
+            </div>
+         </div>
+        </div>
     </body>
-
-    <script type="text/javascript">
-
-        $( document ).ready(function() { 
-            searchAddress('02952-230');
-        
-        });
-
-        var mymap = L.map('mapid').setView([-23.4682137, -46.7191071], 10);
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '<a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> | <b>Léo Alves</b>',
-            subdomains: ['a','b','c'],
-            maxZoom: 20
-        }).addTo(mymap);
-
-        markers = [ 
-            { "name": "Marcos Costas", "age": "22", "address": "Rua josé Campo Barretos, 176", "latitude": -23.4682137, "longitude": -46.7191071 },
-            { "name": "Maria de Lima", "age": "32", "address": "Rua Brigadeiro Galvão Peixoto, 300", "latitude": -23.5213313, "longitude": -46.7208202 },
-            { "name": "Lucas Mariano", "age": "43", "address": "Rua do Chico Nunes, 300", "latitude": -23.6289444, "longitude": -46.7452848}
-        ];
-
-        markers.forEach(function(m) { 
-
-            L.marker( [m.latitude, m.longitude] )
-                .addTo(mymap)
-                .bindPopup('<b>' + m.name + '</b><br>' + 'Idade:' + m.age + '<br>' + m.address)
-                .openPopup();
-        });
-
-        function searchAddress(value) {
-            $.getJSON( {
-                url  : 'https://maps.googleapis.com/maps/api/geocode/json',
-                data : {
-                    sensor   : false,
-                    address  : value,
-                    dataType : 'jsonp',
-                    key: 'AIzaSyDMHRY5qMwztkdNMgzrejpD_ymY_7yl4DE'
-                },
-                success : function( data, textStatus ) {
-                    console.log( textStatus, data );
-                }
-            });
-        }
-        
-    </script>
+    <script src="js/leaflet.js"></script>
+    <script src="js/Jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/comum.js"></script>
 </html>
