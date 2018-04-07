@@ -42,12 +42,12 @@
                 .openPopup();
         });
 
-        function searchAddress(cep) {
+        function searchAddress(value) {
             $.getJSON( {
                 url  : 'https://maps.googleapis.com/maps/api/geocode/json',
                 data : {
                     sensor   : false,
-                    address  : cep,
+                    address  : value,
                     dataType : 'jsonp',
                     key: 'AIzaSyDMHRY5qMwztkdNMgzrejpD_ymY_7yl4DE'
                 },
