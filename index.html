@@ -7,7 +7,7 @@
 
         <link rel="stylesheet" href="leaflet.css" />
         <script src="leaflet.js"></script>
-      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
         <title>Leaflet Maps</title>
     </head>
     <body>
@@ -15,6 +15,12 @@
     </body>
 
     <script type="text/javascript">
+
+        $( document ).ready(function() { 
+            searchAddress('02952-230');
+        
+        });
+
         var mymap = L.map('mapid').setView([-23.4682137, -46.7191071], 10);
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '<a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> | <b>Léo Alves</b>',
@@ -35,6 +41,21 @@
                 .bindPopup('<b>' + m.name + '</b><br>' + 'Idade:' + m.age + '<br>' + m.address)
                 .openPopup();
         });
+
+        function searchAddress(cep) {
+            $.getJSON( {
+                url  : 'https://maps.googleapis.com/maps/api/geocode/json',
+                data : {
+                    sensor   : false,
+                    address  : cep,
+                    dataType : 'jsonp',
+                    key: 'AIzaSyDMHRY5qMwztkdNMgzrejpD_ymY_7yl4DE'
+                },
+                success : function( data, textStatus ) {
+                    console.log( textStatus, data );
+                }
+            });
+        }
         
     </script>
 </html>
