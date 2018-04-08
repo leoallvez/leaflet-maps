@@ -5,8 +5,8 @@ $( document ).ready(function() {
 
 var mymap = L.map('mapid').setView([-23.4682137, -46.7191071], 10);
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '<a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> | <b>Léo Alves</b>',
-    subdomains: ['a','b','c'],
+    attribution: '<a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> | <b>Maps Labs</b>',
+    subdomains: ['a', 'b', 'c'],
     maxZoom: 20
 }).addTo(mymap);
 

@@ -6,17 +6,46 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <link rel="stylesheet" href="css/leaflet.css" />
         <link rel="stylesheet" href="css/bootstrap.min.css">
-        
-        <title>Leaflet Maps</title>
+        <link rel="shortcut icon" href="images/favicon.ico" />
+        <title>Maps Lab</title>
     </head>
     <body>
+        <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
+            <h5 class="my-0 mr-md-auto font-weight-normal"><b>Maps Lab</b></h5><br>
+            <!-- 
+            <nav class="my-2 my-md-0 mr-md-3">
+                <a class="p-2 text-dark" href="#">Features</a>
+                <a class="p-2 text-dark" href="#">Enterprise</a>
+                <a class="p-2 text-dark" href="#">Support</a>
+                <a class="p-2 text-dark" href="#">Pricing</a>
+            </nav> 
+            -->
+            <a class="btn btn-outline-primary" href="#">Add Pin</a>
+        </div>
+        <!-- <br> -->
         <div class="container">
-            <div class="row">
-                <div class="col-md-12 col-md-offset-5">
-                    <div id="mapid" style="height: 30em;" ></div>
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+
+                        <div class="col">
+                            <div id="mapid" style="height: 30em;"></div>
+                        </div>
+                        
+                    </div>
                 </div>
             </div>
         </div>
+        <footer class="footer">
+            <div class="container">
+                <hr>
+                <p class="text-muted">
+                    <a href="https://www.linkedin.com/in/leoallvez/">
+                        <b>Leonardo Alves</b> &bull; 2018
+                    </a>
+                </p>
+            </div>
+        </footer>
     </body>
     <script src="js/leaflet.js"></script>
     <script src="js/Jquery.min.js"></script>
