@@ -1,5 +1,4 @@
 
-var found = [];
 var mymap = L.map('mapid').setView([-23.4682137, -46.7191071], 10);
 
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -36,7 +35,7 @@ adresses.forEach(function (address) {
 $('#search').select2({
     dropdownParent: $('#mapModal'),
     placeholder: "Search by address, city, state or country.",
-    allowClear: true,
+    //allowClear: true,
     ajax: {
         url: 'https://maps.googleapis.com/maps/api/geocode/json',
         delay: 250,
@@ -53,48 +52,47 @@ $('#search').select2({
         },
         processResults: function (data) {
 
-            var arr = [];
-            found = [];
+            var arr  = [];
+            adresses = [];
 
             if (data.status == "OK" && isNotNull(data.results)) {
 
-                data.results.forEach(function (valor, index) {
+                data.results.forEach(function (value, index) {
 
                     arr.push({
                         id  : index,
-                        text: valor.formatted_address
+                        text: value.formatted_address
                     });
 
-                    found.push({
+                    adresses.push({
                         id: index,
-                        lat: valor.geometry.location.lat,
-                        lng: valor.geometry.location.lng,
-                        description: valor.formatted_address
+                        lat: value.geometry.location.lat,
+                        lng: value.geometry.location.lng,
+                        description: value.formatted_address
                     });
                 });
             }
             return {
                 results: arr
-            };
+            }
         },
     },
     templateSelection: function (data) {
 
         if (!isEmpty(data.id) && isNotNull(data)) {
-            var address = found[data.id];
+            var address = adresses[data.id];
 
             L.marker([address.lat, address.lng])
                 .addTo(mymap)
                 .bindPopup('<b>' + address.description + '</b>')
                 .openPopup();
         }
-
         return data.text;
     }
 });
 
 function isEmpty(str) {
-    return (!str || 0 === str.length);
+    return (str === null || !str || 0 === str.length || str === '');
 }
 
 function isNotNull(val){
@@ -102,6 +100,5 @@ function isNotNull(val){
 }
 
 function clearSelect(){
-    //$("#search").val('').trigger('change');
     $("#search").empty().trigger('change')
 }
