@@ -102,5 +102,6 @@ function isNotNull(val){
 }
 
 function clearSelect(){
-    $("#search").val('').trigger('change')
+    //$("#search").val('').trigger('change');
+    $("#search").empty().trigger('change')
 }
