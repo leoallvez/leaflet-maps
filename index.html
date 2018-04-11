@@ -12,7 +12,7 @@
     </head>
     <body>
         <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
-            <h5 class="my-0 mr-md-auto font-weight-normal"><b>Maps Lab</b></h5><br>
+            <h5 class="my-0 mr-md-auto font-weight-normal"><b>Maps Lab</b></h5>
             <!-- 
             <nav class="my-2 my-md-0 mr-md-3">
                 <a class="p-2 text-dark" href="#">Features</a>
@@ -20,12 +20,21 @@
                 <a class="p-2 text-dark" href="#">Support</a>
                 <a class="p-2 text-dark" href="#">Pricing</a>
             </nav> 
-            -->
             <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#mapModal">New Pin</button>
+            -->
         </div>
         <!-- <br> -->
         <div class="container">
             <div class="card">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <select id="search" class="form-control" style="width: 100%"></select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="card-body">
                     <div class="row">
                         <div class="col">
@@ -45,40 +54,6 @@
                 </p>
             </div>
         </footer>
-        <!--Modal-->
-        <div class="modal fade" id="mapModal" tabindex="-1" role="dialog" aria-labelledby="ModalMapLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="ModalMapLabel">New Pin</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form>
-                    <div class="form-group">
-                        <label for="recipient-name" class="col-form-label">
-                            Search Address:
-                        </label>
-                        <select id="search" class="form-control" style="width: 100%"></select>
-                    </div>
-                    <div class="form-group">
-                        <!-- 
-                            <label for="message-text" class="col-form-label">Message:</label>
-                            <textarea class="form-control" id="message-text"></textarea> 
-                        -->
-                    </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" onclick="clearSelect()">Clear</button>
-                </div>
-                </div>
-            </div>
-        </div>
-        <!--Modal-->
     </body>
     <script src="js/leaflet.js"></script>
     <script src="js/Jquery.min.js"></script>

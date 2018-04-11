@@ -33,12 +33,13 @@ adresses.forEach(function (address) {
 });
 
 $('#search').select2({
-    dropdownParent: $('#mapModal'),
     placeholder: "Search by address, city, state or country.",
-    //allowClear: true,
+    allowClear: true,
     ajax: {
         url: 'https://maps.googleapis.com/maps/api/geocode/json',
-        delay: 250,
+        dataType: 'json',
+        delay: 150,
+        cache: true,
         data: function (params) {
 
             if (!isEmpty(params.term)) {
@@ -86,7 +87,10 @@ $('#search').select2({
                 .addTo(mymap)
                 .bindPopup('<b>' + address.description + '</b>')
                 .openPopup();
+                
+            data.text = address.description;
         }
+
         return data.text;
     }
 });
